@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	.red{
+		color:red;
+	}
+</style>
+<script type="text/javascript">
+	function start(){
+		window.addEventListener("keyup", passMatch,false);
+	}
+
+	function passMatch() {
+		var pass = document.getElementById("pass").value;
+		var rePass = document.getElementById("reType").value;
+		if(pass != rePass){
+			document.getElementById("nomatch").innerHTML="<p>passwords don't match!</p>";
+			document.getElementById("nomatch").setAttribute("class","red");
+		}
+		else
+			document.getElementById("nomatch").innerHTML="";
+	}
+	window.addEventListener("load", start, false);
+</script>
+</head>
+<body>
+	<!-- Make each form have a required attribute -->
+	<h1>Registered Users:</h1>
+	<form action="./login.php" method="post">
+		<label>Usermame:
+			<input required type="" name="username">
+		</label>
+		<label>Password:
+			<input required type="" name="password">
+		</label>
+		<input required type="submit" value = "Log in" name="login">
+	</form>
+
+	<h1>New Users:</h1>
+	<form action="./signup.php" method="post">
+		<label>First Name:
+			<input required type="" name="firstname">
+		</label>
+		<label>Last Name:
+			<input required type="" name="lastname">
+		</label>
+		<label>phone:
+			<input required type="" name="phone">
+		</label>
+		<label>email:
+			<input required type="" name="email">
+		</label>
+		<label>Usermame:
+			<input required type="" name="username">
+		</label>
+		<label>Password:
+			<input required type="" name="password" id="pass">
+		</label>
+		<label>Retype password:
+			<input required id="retype" type="" name="reTypePassword">
+			<span id="nomatch" class=""></span>
+		</label>
+		<input required type="submit" value = "Sign up" name="signup">
+	</form>
+
+</body>
+</html>
